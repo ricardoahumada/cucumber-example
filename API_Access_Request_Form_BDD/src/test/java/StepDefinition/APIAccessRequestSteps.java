@@ -62,4 +62,5 @@ public class APIAccessRequestSteps {
         // Close the browser
         driver.quit();
     }
+    
 }
