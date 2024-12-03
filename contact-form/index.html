@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact form</title>
+    <style>
+        #contact-new-form {
+            display: block;
+        }
+
+        #thanks {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="contact-new-form">
+        <div class="contact-title">
+            <div class="row">
+                <h1>Let's talk
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns columns-12">
+                <p><span class="wpcf7-form-control-wrap" data-name="textarea-431">
+                        <textarea cols="40" rows="10" minlength="3" maxlength="2000"
+                            class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true"
+                            placeholder="Do you have any specific requirements? Please let us know and we can include them in the discussion."
+                            name="textarea-431" required>
+                    </textarea>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns columns-6">
+                <p><span class="wpcf7-form-control-wrap" data-name="text-228">
+                        <input size="40" minlength="3" maxlength="40" minlength="10"
+                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                            placeholder="Full name" value="" type="text" name="text-228" required>
+                    </span>
+                </p>
+            </div>
+            <div class="columns columns-6">
+                <p><span class="wpcf7-form-control-wrap" data-name="email-322">
+                        <input size="40" minlength="3" maxlength="40"
+                            class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
+                            aria-required="true" placeholder="Work email address" value="" type="email" name="email-322"
+                            required>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns columns-6">
+                <p><span class="wpcf7-form-control-wrap" data-name="text-228">
+                        <input size="40" minlength="3" maxlength="40"
+                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                            placeholder="Company" value="" type="text" name="text-228" required />
+                    </span>
+                </p>
+            </div>
+            <div class="columns columns-6">
+                <p><span class="wpcf7-form-control-wrap" data-name="tel-744">
+                        <input size="40" minlength="3" maxlength="20"
+                            class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel"
+                            aria-required="true" placeholder="Phone number" value="" type="tel" name="tel-744"
+                            required></span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns checkboxErrormsg">
+                <p><span class="wpcf7-form-control-wrap" data-name="checkbox-989"><span
+                            class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required contact-checkbox"
+                            id="checkboxOne"><span class="wpcf7-list-item first last">
+                                <input type="checkbox" name="checkbox-989[]"
+                                    value="I agree to have Banana contact me via email, phone, messengers." required>
+                                <span class="wpcf7-list-item-label">
+                                    I agree to have Banana contact me via email, phone, messengers.
+                                </span>
+                            </span></span></span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns columns-12 contact-submit">
+                <p>
+                    <input class="wpcf7-form-control wpcf7-submit has-spinner primary" id="submit-button" type="submit"
+                        value="Submit"><span class="wpcf7-spinner"></span>
+                </p>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <div id="thanks" class="response-output" aria-hidden="true">
+
+    </div>
+</body>
+<script>
+    document.getElementById('submit-button').onclick = (e) => {
+        e.preventDefault();
+        const cform = document.getElementById('contact-new-form');
+        const isValid = cform.checkValidity();
+        console.log('Valid form:', isValid);
+        if (isValid) {
+            document.getElementById('thanks').innerText = 'Thank you for reaching out, we will revert to your request in 1-2 business working days.';
+            document.getElementById('thanks').style.display = 'block';
+        }else{
+            document.getElementById('thanks').innerText = 'Must complete all the fields';
+            document.getElementById('thanks').style.display = 'block';
+        }
+    }
+</script>
+
+</html>
